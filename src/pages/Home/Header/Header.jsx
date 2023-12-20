@@ -44,7 +44,7 @@ console.log("photo url",user?.photoURL);
     </>
   );
   return (
-    <div className=" bg-red-500   ">
+    <div className="   ">
       <div className="navbar  lg:max-w-6xl mx-auto   ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -82,10 +82,10 @@ console.log("photo url",user?.photoURL);
   
           {user?.displayName? (
          
-              <button onClick={handleLogout} className="btn btn-primary bg-red-400 border-0 text-white"> Logout</button>
+              <button onClick={handleLogout} className="btn btn-primary  border-0 "> Logout</button>
            
           ) : (
-            <Link to={"/login"}><button className="btn border-0  bg-red-400 text-white"> Log in</button> </Link> 
+            <Link to={"/login"}><button className="btn border-0   "> Lets Explore</button> </Link> 
           )}
         </div>
       </div>

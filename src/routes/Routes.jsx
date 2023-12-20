@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 import Blog from "../components/Blog";
 import Opinion from "../pages/opinion/Opinion";
 import Errorpgae from "../pages/Errorpage/Errorpgae";
+import Dashboard from "../layouts/Dashboard";
+import UserProfile from "../pages/userProfile/UserProfile";
 
 
 
@@ -53,7 +55,51 @@ const router = createBrowserRouter([
             }, 
           
         ]
-    }    
+    }   ,{
+        path: "dashboard",
+        element: <PrivateRoute><Dashboard /></PrivateRoute> ,
+        children: [
+          // normal user routes
+    
+    // {
+    //   path: "requestedmeals",
+    //   element: <PrivateRouteForNonAdmin><RequestedMeals/></PrivateRouteForNonAdmin> 
+    
+    // }
+
+    // ,
+    // {
+    //   path: "userProfile",
+    //   element:  <PrivateRouteForNonAdmin><MyProfile/></PrivateRouteForNonAdmin>
+    
+    // }
+    // ,
+    
+    // {
+    //   path: "myreviews",
+    //   element: <PrivateRouteForNonAdmin><Myreviews/></PrivateRouteForNonAdmin> 
+    
+    // }
+    // ,
+    
+          {
+            path: "",
+            element:<UserProfile></UserProfile> ,
+          },
+    
+    //       {
+    //         path: "AllReviews",
+    //         element:  <AdminRoute><AllReviews /></AdminRoute>,
+    
+    
+    //       },
+    //       {
+    //         path: "Addmeal",
+    //         element: <AdminRoute> <AddMeal /></AdminRoute>,
+    //       },
+         
+        ],
+      } 
 ]);
 
 export default router;
