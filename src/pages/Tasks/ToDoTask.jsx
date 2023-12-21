@@ -3,7 +3,7 @@ import { useDrop } from "react-dnd";
 import SingleTask from './SingleTask';
 import Swal from "sweetalert2";
 import axios from 'axios';
-const TaskSection = ({task_lists,status,refetch}) => {
+const ToDoTask = ({task_lists,status,refetch}) => {
 //     const handleDrop = (item) => {
 //         console.log("dropped item", item,status);
 // ///updating status
@@ -40,39 +40,45 @@ const TaskSection = ({task_lists,status,refetch}) => {
 //       };
     
 const handleDrop = useCallback((item) => {
-  // Your existing code...
+    // Your existing code...
 
 
-  //         console.log("dropped item", item,status);
+    //         console.log("dropped item", item,status);
 ///updating status
 
 const taskinfo={
-task_status:status
+
+
+  task_status:status
 }
 
 axios.patch(`http://localhost:5000/update/task/${item._id}`,taskinfo, {
-headers: {
-  "Content-Type": "application/json",
-},
+  headers: {
+    "Content-Type": "application/json",
+  },
 })
 .then((response) => {
-console.log(response.data);
-if (response.data.modifiedCount > 0) {
-  // Swal.fire({
-  //   title: "Success!",
-  //   text: "Task Updated Successfully",
-  //   icon: "success",
-  //   confirmButtonText: "Cool",
-  // });
-  refetch();
-}
+  console.log(response.data);
+  if (response.data.modifiedCount > 0) {
+    // Swal.fire({
+    //   title: "Success!",
+    //   text: "Task Updated Successfully",
+    //   icon: "success",
+    //   confirmButtonText: "Cool",
+    // });
+    refetch();
+  }
 })
 .catch((error) => {
-console.error("Error:", error);
-// Handle errors if any
+  console.error("Error:", error);
+  // Handle errors if any
 });
 
-}, [status, refetch]);
+  }, [status, refetch]);
+
+
+
+
 const [{ isOver }, drop] = useDrop(() => ({
         accept: "task",
     
@@ -85,10 +91,10 @@ const [{ isOver }, drop] = useDrop(() => ({
         <div ref={drop}  className="in-progress min-h-screen border bg-yellow-500 p-5">
         <h2>In {status} {task_lists.length}</h2>
         {task_lists.map((task, idx) => (
-          <SingleTask refetch={refetch} key={task._id} task={task}></SingleTask>
+          <SingleTask key={task._id} task={task}></SingleTask>
         ))}
       </div>
     );
 };
 
-export default TaskSection;
+export default ToDoTask;

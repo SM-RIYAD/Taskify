@@ -11,20 +11,18 @@ import { useAsyncValue } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
-const todo_dummy = [
-  { id: 1, name: "task1", type: "todo" },
-  { id: 1, name: "task1", type: "todo" },
-  { id: 3, name: "task3", type: "todo" },
-];
-const completed_dummy = [{ id: 4, name: "task4", type: "completed" }];
-const inprogress_dummy = [{ id: 5, name: "task45", type: "inprogress" }];
+import ToDoTask from "./ToDoTask";
+import OngoingTask from "./OngoingTask";
+import CompletedTask from "./CompletedTask";
+
 
 const Tasks = () => {
 
   const [todoTasks,setTodoTasks]=useState([]);
   const [onGoingTasks,setOnGoingTasks]=useState([]);
   const [completedTasks,setCompletedTasks]=useState([]);
-  const {data: tasks = [], isPending: task_loading, } = useQuery({
+  
+  const {data: tasks = [], isPending: task_loading, refetch } = useQuery({
     queryKey: ['tasks'],
 
     queryFn: async() =>{
@@ -78,7 +76,7 @@ axios.post("http://localhost:5000/addtask",newTask, {
     //   icon: "success",
     //   confirmButtonText: "Cool"
     // });
-
+refetch();
     SuccessToast("Successfully Created a Task !");
   }
 })
@@ -182,17 +180,26 @@ axios.post("http://localhost:5000/addtask",newTask, {
           </div>
         </dialog>
       </div>
-      <div className="grid p-10 lg:grid-cols-3 grid-cols-1 pt-10 text-gray gap-5">
-        <TaskSection status="To do" task_lists={todoTasks}>
-          {" "}
-        </TaskSection>
-        <TaskSection status="Ongoing" task_lists={onGoingTasks}>
-          {" "}
-        </TaskSection>
-        <TaskSection status="Completed" task_lists={completedTasks}>
-          {" "}
-        </TaskSection>
-      </div>
+
+      {
+
+task_loading? <p>loading</p>:    <div className="grid p-10 lg:grid-cols-3 grid-cols-1 pt-10 text-gray gap-5">
+<TaskSection status="To do" refetch={refetch} task_lists={todoTasks}>
+  {" "}
+</TaskSection>
+
+{/* <ToDoTask status="To do" refetch={refetch} task_lists={todoTasks}></ToDoTask> */}
+<TaskSection status="Ongoing" refetch={refetch} task_lists={onGoingTasks}>
+  {" "}
+</TaskSection>
+{/* <OngoingTask status="Ongoing" refetch={refetch} task_lists={onGoingTasks}></OngoingTask> */}
+<TaskSection status="Completed" refetch={refetch} task_lists={completedTasks}>
+  {" "}
+</TaskSection>
+{/* <CompletedTask status="Completed" refetch={refetch} task_lists={completedTasks}></CompletedTask> */}
+</div>
+      }
+   
     </div>
   );
 };
