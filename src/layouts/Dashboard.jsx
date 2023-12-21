@@ -105,14 +105,14 @@
              {
               <>
                 <li>
-                  <NavLink to="/dashboard">
+                  <NavLink to="/dashboard/profile">
                 
                       
                       My Profile</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/requestedmeals">
-             Requested Meals
+                  <NavLink to="/dashboard/tasks">
+          Tasks
                   </NavLink>
                 </li>
                 {/* <li>

@@ -10,6 +10,7 @@ import Opinion from "../pages/opinion/Opinion";
 import Errorpgae from "../pages/Errorpage/Errorpgae";
 import Dashboard from "../layouts/Dashboard";
 import UserProfile from "../pages/userProfile/UserProfile";
+import Tasks from "../pages/Tasks/Tasks";
 
 
 
@@ -83,16 +84,16 @@ const router = createBrowserRouter([
     // ,
     
           {
-            path: "",
+            path: "profile",
             element:<UserProfile></UserProfile> ,
           },
     
-    //       {
-    //         path: "AllReviews",
-    //         element:  <AdminRoute><AllReviews /></AdminRoute>,
+          {
+            path: "tasks",
+            element: <Tasks></Tasks>,
     
     
-    //       },
+          },
     //       {
     //         path: "Addmeal",
     //         element: <AdminRoute> <AddMeal /></AdminRoute>,

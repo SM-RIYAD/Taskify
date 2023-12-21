@@ -36,7 +36,7 @@ const Login = () => {
 
       
         SuccessToast("Successfully logged in !");
-        navigate(location?.state ? location.state : '/dashboard');
+        navigate(location?.state ? location.state : '/dashboard/profile');
       })
       .catch((error) => {
         console.error("this is ", error);
@@ -53,7 +53,7 @@ const Login = () => {
       
       SuccessToast("Successfully logged in !");
 
-      navigate(location?.state ? location.state : '/dashboard');
+      navigate(location?.state ? location.state : '/dashboard/profile');
     })
     .catch((error) => {
       console.error("this is ", error);
