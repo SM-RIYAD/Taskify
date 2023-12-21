@@ -72,7 +72,7 @@ console.log("photo url",user?.photoURL);
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-red-800 font-bold text-xl">
-            Social Events
+            Taskify
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
