@@ -14,7 +14,7 @@ const TaskSection = ({task_lists,status}) => {
         }),
       }));
     return (
-        <div ref={drop}  className="in-progress min-h-screen border bg-yellow-500">
+        <div ref={drop}  className="in-progress min-h-screen border bg-yellow-500 p-5">
         <h2>In {status} {task_lists.length}</h2>
         {task_lists.map((task, idx) => (
           <SingleTask key={idx} task={task}></SingleTask>
