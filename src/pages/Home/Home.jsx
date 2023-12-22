@@ -1,48 +1,32 @@
 import { useEffect, useState } from "react";
 import Banner from "./Banner/Banner";
 import Header from "./Header/Header";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import Footer from "../../Shared/Footer";
 import Concern from "./Concern/Concern";
 
-
-
 const Home = () => {
+
   const [events, setEvents] = useState([]);
   useEffect(() => {
     fetch("events.json")
-      .then((result) =>result.json()).then((data) =>setEvents(data))
-    
-      
-   
+      .then((result) => result.json())
+      .then((data) => setEvents(data))
+
       .catch((error) => console.log(error));
   }, []);
 
-
-
   return (
-    <div  >
+    <div>
       <Header></Header>
-   
+
       <div className="">
-      <Banner></Banner>
+        <Banner></Banner>
 
-
-    <Concern></Concern>
-   
-      <div className="  grid pb-2 mt-20 gap-10 lg:max-w-6xl lg:mx-auto mx-5 grid-cols-1  lg:grid-cols-2">
-     
-
-
-
-</div>
-
-
+        <Concern></Concern>
 
       </div>
-      
-       <Footer></Footer>
-
     </div>
   );
 };

@@ -23,7 +23,7 @@ const Opinion = () => {
            
 
 
-            <button className="btn btn-primary bg-red-600 mt-5 border-0 text-white">
+            <button className="btn btn-primary bg-black mt-5 border-0 text-white">
               Submit{" "}
             </button>
      

@@ -26,7 +26,7 @@ const UserProfile = () => {
                  
                  <div className='  flex flex-col space-y-3 justify-center'>
 
-                    <h1 className='text-4xl font-bold text-red-500'> {user?.displayName}</h1>
+                    <h1 className='text-4xl font-bold text-blue-500'> {user?.displayName}</h1>
 
                     <p className='font-bold text-xl'>Email: </p>
                     <h1 className=' font-bold text-gray-500'> {user?.email}</h1>

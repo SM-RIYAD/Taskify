@@ -88,7 +88,7 @@
     //       <Outlet></Outlet>
     //     </div>
     //   </div>
-    <div className="drawer bg-gradient-to-r from-cyan-500 to-blue-500  lg:drawer-open">
+    <div className="drawer   lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
   <div className="drawer-content flex flex-col items-center justify-center">
     {/* Page content here */}

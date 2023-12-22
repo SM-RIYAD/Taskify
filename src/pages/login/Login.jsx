@@ -111,14 +111,14 @@ const Login = () => {
                   {" "}
                   <p>
                     New to the web site?
-                    <span className="text-red-600 font-bold underline">
+                    <span className="text-black font-bold underline">
                       <Link to={"/register"}>Register </Link>
                     </span>
                   </p>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-red-600 btn-primary border-0 text-white">
+                <button className="btn bg-black btn-primary border-0 text-white">
                   Login
                 </button>
                
@@ -128,7 +128,7 @@ const Login = () => {
                 </button> */}
             </form> 
             <div className="flex justify-center w-full">
-            <button onClick={handleGoogleSignin} className=" lg:w-[320px] w-[220px] btn mt-1 mb-5  bg-red-600 btn-primary border-0 text-white">
+            <button onClick={handleGoogleSignin} className=" lg:w-[320px] w-[220px] btn mt-1 mb-5  bg-black btn-primary border-0 text-white">
                   Log In With Google
                 </button>
 

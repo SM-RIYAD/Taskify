@@ -86,7 +86,7 @@ refetch();
 
   };
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white"> 
+    <div className=" text-white"> 
       <div className="flex  w-full justify-center">
         <button
           onClick={() => {
@@ -179,7 +179,7 @@ refetch();
 
       {
 
-task_loading? <p>loading</p>:    <div className="grid p-10 lg:grid-cols-3 grid-cols-1 pt-10 text-gray gap-5">
+task_loading? <p>loading...</p>:    <div className="grid p-10 lg:grid-cols-3 grid-cols-1 pt-10 text-gray gap-5">
 <TaskSection task_loading={task_loading} status="To do" refetch={refetch} task_lists={todoTasks}>
   {" "}
 </TaskSection>

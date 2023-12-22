@@ -70,12 +70,12 @@ console.log("photo url",user?.photoURL);
             </label>
             <ul
               tabIndex={0}
-              className="menu z-40 menu-sm dropdown-content mt-3  p-2 shadow bg-red-500 rounded-box w-52"
+              className="menu z-40 menu-sm dropdown-content mt-3  p-2 shadow bg-blue-300 rounded-box w-52"
             >
            {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-red-800 font-bold text-xl">
+          <a className="btn btn-ghost  uppercase text-blue-400 font-bold text-2xl">
             Taskify
           </a>
         </div>
@@ -86,7 +86,7 @@ console.log("photo url",user?.photoURL);
   
           {user?.displayName? (
          
-              <button onClick={handleLogout} className="btn btn-primary  border-0 "> Logout</button>
+              <button onClick={handleLogout} className="btn btn-error  border-0 "> Logout</button>
            
           ) : (
             <Link to={"/login"}><button className="btn border-0   "> Lets Explore</button> </Link> 

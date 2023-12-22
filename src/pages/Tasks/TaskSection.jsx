@@ -78,8 +78,8 @@ const [{ isOver }, drop] = useDrop(() => ({
         }),
       }));
     return (
-        <div ref={drop}  className="in-progress min-h-screen border  p-5">
-        <h2 className='text-center uppercase text-2xl font-bold '> {status} </h2>
+        <div ref={drop}   className="in-progress   min-h-screen border border-black border-5  p-5">
+        <h2 className='text-center uppercase text-2xl text-black font-bold '> {status} </h2>
         {
 task_loading?  <div>
           <span className="loading loading-spinner loading-lg"></span>

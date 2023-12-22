@@ -124,14 +124,14 @@ const Register = () => {
                   {" "}
                   <p>
                     Have an account?
-                    <span className="text-red-600 font-bold underline">
+                    <span className="text-black font-bold underline">
                       <Link to={"/login"}>Log in </Link>
                     </span>
                   </p>
                 </label>
               </div>
               <div className="form-controls mt-6">
-                <button className="btn bg-red-600 btn-primary border-0 text-white">
+                <button className="btn bg-black btn-primary border-0 text-white">
                   Register
                 </button>
               </div>
