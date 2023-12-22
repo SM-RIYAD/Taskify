@@ -102,11 +102,11 @@ refetch();
           <div className="modal-box">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn  btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              <button className="btn  btn-sm btn-circle  absolute right-2 top-2">
                 ✕
               </button>
             </form>
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body  ">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body text-black  ">
               <div className="grid  grid-cols-1 gap-2">
                 <div className="form-control">
                   <label className="label">

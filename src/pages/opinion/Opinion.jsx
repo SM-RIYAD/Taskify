@@ -8,7 +8,7 @@ const Opinion = () => {
         
      
 
-      <div className="lg:max-w-6xl lg:mx-auto mx-5">
+      <div className="lg:max-w-6xl lg:mx-auto ">
         <div className="card w-full bg-base-100 shadow-xl image-full">
           <figure className="w-full ">
             <img

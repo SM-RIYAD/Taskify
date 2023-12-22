@@ -5,7 +5,7 @@ const Concern = () => {
         <div className='grid'>
             <div className='lg:max-w-6xl mx-auto my-10'>
             <h1 className='text-3xl mb-5 uppercase font-bold text-black text-center '>Popular Users</h1>
-            <p className=' font-bold  text-gray-400  text-center'>Taskify serves a dynamic community, from busy professionals and diligent students to entrepreneurs and freelancers. Our user-friendly platform adapts to your specific needs, providing a seamless task management experience for all. </p>
+            <p className=' font-bold  text-gray-400  text-center p-2'>Taskify serves a dynamic community, from busy professionals and diligent students to entrepreneurs and freelancers. Our user-friendly platform adapts to your specific needs, providing a seamless task management experience for all. </p>
             </div>
           
             <Marquee>
