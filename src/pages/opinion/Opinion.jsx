@@ -3,10 +3,10 @@ import Header from "../Home/Header/Header";
 const Opinion = () => {
   return (
     <div className="">
-      <div className="w-full mb-5 bg-red-500 ">
+      
         <Header></Header>
         
-      </div>
+     
 
       <div className="lg:max-w-6xl lg:mx-auto mx-5">
         <div className="card w-full bg-base-100 shadow-xl image-full">

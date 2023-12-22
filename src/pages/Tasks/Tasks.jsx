@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import SingleTask from "./SingleTask";
 import { useDrop } from "react-dnd";
 import TaskSection from "./TaskSection";
-import TaskSection_Progress from "./TaskSection";
-import Progress_section from "./TaskSection";
+
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
-import { useAsyncValue } from "react-router-dom";
+
 import useAuth from "../../hooks/useAuth";
 import { useQuery } from '@tanstack/react-query';
 import axios from "axios";
-import ToDoTask from "./ToDoTask";
-import OngoingTask from "./OngoingTask";
-import CompletedTask from "./CompletedTask";
 
 
 const Tasks = () => {
@@ -21,12 +17,12 @@ const Tasks = () => {
   const [todoTasks,setTodoTasks]=useState([]);
   const [onGoingTasks,setOnGoingTasks]=useState([]);
   const [completedTasks,setCompletedTasks]=useState([]);
-  
+  const {user}=useAuth();
   const {data: tasks = [], isPending: task_loading, refetch } = useQuery({
     queryKey: ['tasks'],
 
     queryFn: async() =>{
-        const res = await axios.get('http://localhost:5000/tasks');
+        const res = await axios.get(`https://taskify-server-pi.vercel.app/tasks?email=${user?.email}`);
         const unfiltered_tasks=res.data;
         console.log("unfiltered tasks",unfiltered_tasks);
 
@@ -41,7 +37,7 @@ const Tasks = () => {
         return res.data;
     }
 })
-  const {user}=useAuth();
+
   console.log("todo tasks:  :", todoTasks);
   console.log("ongoing tasks:  :", onGoingTasks);
   console.log("completed tasks:  :", completedTasks);
@@ -62,7 +58,7 @@ const newTask= {
   task_status:"To do"
 }
 console.log("new task ",newTask)
-axios.post("http://localhost:5000/addtask",newTask, {
+axios.post("https://taskify-server-pi.vercel.app/addtask",newTask, {
   headers: {
     "Content-Type": "application/json"
   }
@@ -90,13 +86,13 @@ refetch();
 
   };
   return (
-    <div>
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white"> 
       <div className="flex  w-full justify-center">
         <button
           onClick={() => {
             document.getElementById("my_modal_1").showModal();
           }}
-          className="btn btn-primary mt-10 bg-slate-500 border-0"
+          className="btn btn-primary mt-10 bg-black text-white border-0"
         >
           {" "}
           Create A Task{" "}
@@ -174,7 +170,7 @@ refetch();
               <input
                 type="submit"
                 value="Create Task"
-                className="btn btn-block text-white border-none bg-red-500 "
+                className="btn btn-block text-white border-none bg-black "
               />
             </form>
           </div>
@@ -184,16 +180,16 @@ refetch();
       {
 
 task_loading? <p>loading</p>:    <div className="grid p-10 lg:grid-cols-3 grid-cols-1 pt-10 text-gray gap-5">
-<TaskSection status="To do" refetch={refetch} task_lists={todoTasks}>
+<TaskSection task_loading={task_loading} status="To do" refetch={refetch} task_lists={todoTasks}>
   {" "}
 </TaskSection>
 
 {/* <ToDoTask status="To do" refetch={refetch} task_lists={todoTasks}></ToDoTask> */}
-<TaskSection status="Ongoing" refetch={refetch} task_lists={onGoingTasks}>
+<TaskSection task_loading={task_loading} status="Ongoing" refetch={refetch} task_lists={onGoingTasks}>
   {" "}
 </TaskSection>
 {/* <OngoingTask status="Ongoing" refetch={refetch} task_lists={onGoingTasks}></OngoingTask> */}
-<TaskSection status="Completed" refetch={refetch} task_lists={completedTasks}>
+<TaskSection task_loading={task_loading} status="Completed" refetch={refetch} task_lists={completedTasks}>
   {" "}
 </TaskSection>
 {/* <CompletedTask status="Completed" refetch={refetch} task_lists={completedTasks}></CompletedTask> */}

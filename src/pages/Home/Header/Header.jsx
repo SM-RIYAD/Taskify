@@ -25,6 +25,10 @@ console.log("photo url",user?.photoURL);
       <li className={`${user ?'pt-10':'pt-5' } `}>
         <NavLink to="/opinion">Opinion</NavLink>
       </li>
+
+      <li className={`${user ?'pt-10':'pt-5' } `}>
+        <NavLink to='/dashboard/profile'>Dashboard</NavLink>
+      </li>
       <li>
 
           {

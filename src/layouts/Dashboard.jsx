@@ -88,17 +88,17 @@
     //       <Outlet></Outlet>
     //     </div>
     //   </div>
-    <div className="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+    <div className="drawer bg-gradient-to-r from-cyan-500 to-blue-500  lg:drawer-open">
+  <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
   <div className="drawer-content flex flex-col items-center justify-center">
     {/* Page content here */}
    
-    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+    <label htmlFor="my-drawer-2" className="btn btn-primary bg-black text-white mt-10 drawer-button lg:hidden">Open drawer</label>
     <Outlet></Outlet>
   </div> 
-  <div className="drawer-side">
+  <div className="drawer-side ">
     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+    <ul className="menu bg-gradient-to-r from-cyan-500 to-blue-500 p-4 w-80 min-h-full  text-base-content">
       {/* Sidebar content here */}
    
          
@@ -120,28 +120,22 @@
                                           <FaShoppingCart></FaShoppingCart>
                                           My Cart ({cart.length})</NavLink>
                                   </li> */}
-                <li>
-                  <NavLink to="/dashboard/myreviews">
-              
-            <p>My Reviews </p> 
-                
-                  </NavLink>
-                </li>
+          
               </>
             }
             {/* shared nav links */}
             <div className="divider"></div>
-            {/* <li>
+            <li>
               <NavLink to="/">
               
                 Home
               </NavLink>
-            </li> */}
-            <li>
+            </li>
+            {/* <li>
               <NavLink to="/meals">
            Meal Display
               </NavLink>
-            </li>
+            </li> */}
             <li>
               {/* <btn
                 onClick={handleLogout}
@@ -153,12 +147,12 @@
                </p>  
             </li>
   
-            <li>
+            {/* <li>
             <img
                   className="lg:w-[250px] w-[300px]  "
                   src={` ${"https://i.ibb.co/vZmgLmZ/mealnestlogo-removebg-preview-1.png"}`}
                 />
-            </li>
+            </li> */}
     </ul>
   
   </div>

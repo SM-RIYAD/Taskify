@@ -3,7 +3,7 @@ import { useDrop } from "react-dnd";
 import SingleTask from './SingleTask';
 import Swal from "sweetalert2";
 import axios from 'axios';
-const TaskSection = ({task_lists,status,refetch}) => {
+const TaskSection = ({task_lists,status,refetch,task_loading}) => {
 //     const handleDrop = (item) => {
 //         console.log("dropped item", item,status);
 // ///updating status
@@ -40,17 +40,13 @@ const TaskSection = ({task_lists,status,refetch}) => {
 //       };
     
 const handleDrop = useCallback((item) => {
-  // Your existing code...
 
-
-  //         console.log("dropped item", item,status);
-///updating status
 
 const taskinfo={
 task_status:status
 }
 
-axios.patch(`http://localhost:5000/update/task/${item._id}`,taskinfo, {
+axios.patch(`https://taskify-server-pi.vercel.app/update/task/${item._id}`,taskinfo, {
 headers: {
   "Content-Type": "application/json",
 },
@@ -82,11 +78,16 @@ const [{ isOver }, drop] = useDrop(() => ({
         }),
       }));
     return (
-        <div ref={drop}  className="in-progress min-h-screen border bg-yellow-500 p-5">
-        <h2>In {status} {task_lists.length}</h2>
-        {task_lists.map((task, idx) => (
+        <div ref={drop}  className="in-progress min-h-screen border  p-5">
+        <h2 className='text-center uppercase text-2xl font-bold '> {status} </h2>
+        {
+task_loading?  <div>
+          <span className="loading loading-spinner loading-lg"></span>
+        </div> : (   task_lists.map((task, idx) => (
           <SingleTask refetch={refetch} key={task._id} task={task}></SingleTask>
-        ))}
+        )))
+        }
+     
       </div>
     );
 };
